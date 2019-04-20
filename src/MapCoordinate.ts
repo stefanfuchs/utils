@@ -1,4 +1,4 @@
-import deg2rad from './deg2rad';
+import deg2rad from './deg2rad'
 
 export interface MapCoordinateInterface {
   lat: number
