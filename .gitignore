@@ -1,0 +1,10 @@
+dist
+#package-lock.json
+node_modules
+.idea
+# .vscode
+*.log
+#.env*
+*.secret.*
+*.ods#
+*.csv#
