@@ -90,15 +90,22 @@ export default class StringUtils {
   public static currencyStringToNumber(str: string) {
     if ((str.match(/,/g) || []).length === 1)
       //If the number of commas 1, the comma is probably a decimal separator
-      //e.g. R$3.000.000,00 -> 3000000.00
+      //e.g. 'R$3.000.000,00' -> 3000000.00
       return parseFloat(str.replace(/\./g, '').replace(/,/g, '.').replace(/[^.0-9]/g, ''))
     else if ((str.match(/\./g) || []).length > 1)
       //If the number of dots is greater than 1, the dots are probably not decimal separators
-      //e.g. R$3.000.000 -> 3000000.00
+      //e.g. 'R$3.000.000' -> 3000000.00
+      return parseFloat(str.replace(/[^0-9]/g, ''))
+    else if (
+      (str.match(/\./g) || []).length === 1 &&
+      str.replace(/[^0-9.]/g, "").match(/[0-9]{3}$/)
+    )
+      //If the number of dots is 1, and there are 3 numbers at the end, the dot is not a decimal separator
+      //e.g. 'R$300.000' -> 300000.00
       return parseFloat(str.replace(/[^0-9]/g, ''))
     else
       //Defaults using the dot as decimal separator
-      //e.g. R$3000.50 -> 3000.50
+      //e.g. 'R$3000.50' -> 3000.50
       return parseFloat(str.replace(/[^.0-9]/g, ''))
   }
 
