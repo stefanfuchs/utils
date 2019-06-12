@@ -1,6 +1,6 @@
 {
   "name": "@stefancfuchs/utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utils I use in many projects",
   "author": "Stefan Fuchs",
   "main": "dist/index.js",
@@ -10,7 +10,8 @@
     "url": "git@github.com:stefanfuchs/utils.git"
   },
   "scripts": {
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "intl": "^1.2.5"
