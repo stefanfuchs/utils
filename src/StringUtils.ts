@@ -36,7 +36,7 @@ export default class StringUtils {
    * @returns
    * @memberof RealEstateDescriptionAnalyzer
    */
-  public static getWordsWithPrefixes(prefixes: string[], words: string[]) {
+  public static getWordsWithPrefixes(prefixes: string[], words: string[]): string[] {
     const wordsWithPrefixes: string[] = []
     for (const word of words) {
       for (const prefix of prefixes) {
@@ -54,7 +54,7 @@ export default class StringUtils {
  * @param {string[]} filterArray
  * @memberof RealEstateDescriptionAnalyzer
  */
-  public static filterArrayThatContainsAny(inputArray: string[], filterArray: (string | RegExp)[], wholeWords: boolean = false) {
+  public static filterArrayThatContainsAny(inputArray: string[], filterArray: (string | RegExp)[], wholeWords: boolean = false): string[] {
     return inputArray.filter(inputString =>
       this.stringContainsAny(inputString, filterArray, wholeWords)
     )
@@ -72,7 +72,7 @@ export default class StringUtils {
    * 
    * @todo test the 'whole words' functionality 
    */
-  public static stringContainsAny(inputString: string, filterArray: (string | RegExp)[], wholeWords: boolean = false) {
+  public static stringContainsAny(inputString: string, filterArray: (string | RegExp)[], wholeWords: boolean = false): boolean {
     for (let filterPattern of filterArray) {
       if (wholeWords) {
         if (typeof filterPattern === 'string')
@@ -87,7 +87,7 @@ export default class StringUtils {
     return false
   }
 
-  public static currencyStringToNumber(str: string) {
+  public static currencyStringToNumber(str: string): number {
     if ((str.match(/,/g) || []).length === 1)
       //If the number of commas 1, the comma is probably a decimal separator
       //e.g. 'R$3.000.000,00' -> 3000000.00
@@ -109,7 +109,7 @@ export default class StringUtils {
       return parseFloat(str.replace(/[^.0-9]/g, ''))
   }
 
-  public static formatCurrency(number: number) {
+  public static formatCurrency(number: number): string {
     const numberFormat = new NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
     return numberFormat.format(number)
     //the code below does not output the correct locale with node
