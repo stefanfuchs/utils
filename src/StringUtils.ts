@@ -1,4 +1,5 @@
 import { NumberFormat } from 'intl'
+import { isString } from 'util';
 // import Intl = require('Intl')
 // const NumberFormat = Intl.NumberFormat
 // Note: you only need to require the locale once
@@ -79,10 +80,10 @@ export default class StringUtils {
           filterPattern = new RegExp('\\b' + filterPattern.trim() + '\\b')
         else
           filterPattern = new RegExp('\\b' + filterPattern + '\\b')
-          
+
         return !!(inputString.match(filterPattern))
       }
-      if (inputString.indexOf(filterPattern as string) >= 0) {
+      if (isString(filterArray) ? inputString.indexOf(filterPattern as string) >= 0 : inputString.match(filterPattern)) {
         return true
       }
     }
