@@ -76,14 +76,12 @@ export default class StringUtils {
   public static stringContainsAny(inputString: string, filterArray: (string | RegExp)[], wholeWords: boolean = false): boolean {
     for (let filterPattern of filterArray) {
       if (wholeWords) {
-        if (typeof filterPattern === 'string')
+        if (isString(filterPattern))
           filterPattern = new RegExp('\\b' + filterPattern.trim() + '\\b')
         else
           filterPattern = new RegExp('\\b' + filterPattern + '\\b')
-
-        return !!(inputString.match(filterPattern))
       }
-      if (isString(filterArray) ? inputString.indexOf(filterPattern as string) >= 0 : inputString.match(filterPattern)) {
+      if (isString(filterPattern) ? inputString.indexOf(filterPattern as string) >= 0 : inputString.match(filterPattern)) {
         return true
       }
     }
