@@ -79,7 +79,7 @@ export default class StringUtils {
         if (isString(filterPattern))
           filterPattern = new RegExp('\\b' + filterPattern.trim() + '\\b')
         else
-          filterPattern = new RegExp('\\b' + filterPattern + '\\b')
+          filterPattern = new RegExp('\\b' + filterPattern.source + '\\b')
       }
       if (isString(filterPattern) ? inputString.indexOf(filterPattern as string) >= 0 : inputString.match(filterPattern)) {
         return true
