@@ -22,6 +22,10 @@ export default class StringUtils {
    * @memberof StringUtils
    */
   public static indexOfGroup(match: RegExpMatchArray, n: number): number {
+    if (!match || n < 0 || n > match.length) {
+      console.error(`[StringUtils.indexOfGroup] invalid parameters: match= ${JSON.stringify(match)}; match.length= ${match && match.length}; n= ${n})}`)
+      return null
+    }
     var ix = match.index
     for (var i = 1; i < n; i++)
       ix += match[i].length
@@ -71,7 +75,6 @@ export default class StringUtils {
    * @param {boolean} wholeWords Whether to consider only whole words in the input string
    * @memberof RealEstateDescriptionAnalyzer
    * 
-   * @todo test the 'whole words' functionality 
    */
   public static stringContainsAny(inputString: string, filterArray: (string | RegExp)[], wholeWords: boolean = false): boolean {
     for (let filterPattern of filterArray) {
