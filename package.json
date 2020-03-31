@@ -1,6 +1,6 @@
 {
   "name": "@stefancfuchs/utils",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Utils I use in many projects",
   "author": "Stefan Fuchs",
   "main": "dist/index.js",

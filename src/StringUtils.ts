@@ -28,7 +28,7 @@ export default class StringUtils {
     }
     var ix = match.index
     for (var i = 1; i < n; i++)
-      ix += match[i].length
+      ix += match[i] ? match[i].length : 0
     return ix
   }
 
