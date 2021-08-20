@@ -345,8 +345,12 @@ export const ACCENT_MAP = {
   'N': 'n',
   '̈': 'n',
   'n': 'n',
+  // UTF-8 'o'
   'Ó': 'o',
   'ó': 'o',
+  // latin-1 'o' (yes, it is different ¯\_(ツ)_/¯)
+  'Ó': 'o',
+  'ó': 'o',
   'Ò': 'o',
   'ò': 'o',
   'Ŏ': 'o',
