@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "rimraf dist && tsc",
-    "prepare": "npm run build"
+    "prepack": "npm run build"
   },
   "dependencies": {
     "intl": "^1.2.5"
